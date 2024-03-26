@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  url: https://127.0.0.1:56499
+  
+  dex.config: |
+    connectors:
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          clientID: 15c35d4126a1808569a2
+          clientSecret: 60b7bea593d45d592236abe925d0e5ec3e511d8b
+          loadAllGroups: true
